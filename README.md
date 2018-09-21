@@ -1,6 +1,6 @@
 ## alban.andrieu.jmeter
 
-[![Travis CI](http://img.shields.io/travis/AlbanAndrieu/ansible-jmeter.svg?style=flat)](http://travis-ci.org/AlbanAndrieu/ansible-jmeter) [![Branch](http://img.shields.io/github/tag/AlbanAndrieu/ansible-jmeter.svg?style=flat-square)](https://github.com/AlbanAndrieu/ansible-jmeter/tree/master) [![Donate](https://img.shields.io/gratipay/AlbanAndrieu.svg?style=flat)](https://www.gratipay.com/AlbanAndrieu)  [![Ansible Galaxy](http://img.shields.io/badge/galaxy-alban.andrieu.jmeter-blue.svg?style=flat)](https://galaxy.ansible.com/list#/roles/1997) [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
+[![Travis CI](http://img.shields.io/travis/kalw/ansible-jmeter.svg?style=flat)](http://travis-ci.org/kalw/ansible-jmeter) [![Branch](http://img.shields.io/github/tag/kalw/ansible-jmeter.svg?style=flat-square)](https://github.com/kalw/ansible-jmeter/tree/master) [![Donate](https://img.shields.io/gratipay/kalw.svg?style=flat)](https://www.gratipay.com/kalw)  [![Ansible Galaxy](http://img.shields.io/badge/galaxy-alban.andrieu.jmeter-blue.svg?style=flat)](https://galaxy.ansible.com/list#/roles/1997) [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 
 Ensures that jmeter is properly installed and configured
 
@@ -64,12 +64,12 @@ Describe how to use in more detail...
 ### Authors and license
 
 `alban.andrieu.jmeter` role was written by:
-- [Alban Andrieu](fr.linkedin.com/in/nabla/) | [e-mail](mailto:alban.andrieu@free.fr) | [Twitter](https://twitter.com/AlbanAndrieu) | [GitHub](https://github.com/AlbanAndrieu)
+- [Alban Andrieu](fr.linkedin.com/in/nabla/) | [e-mail](mailto:alban.andrieu@free.fr) | [Twitter](https://twitter.com/kalw) | [GitHub](https://github.com/kalw)
 - License: [GPLv3](https://tldrlegal.com/license/gnu-general-public-license-v3-%28gpl-3%29)
 
 ### Feedback, bug-reports, requests, ...
 
-Are [welcome](https://github.com/AlbanAndrieu/ansible-jmeter/issues)!
+Are [welcome](https://github.com/kalw/ansible-jmeter/issues)!
 
 ***
 
