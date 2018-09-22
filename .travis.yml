@@ -14,7 +14,7 @@ script:
 
     - echo "==> Validating the test results..."
     - sh -c "[ -s result-ubuntu16.04 ]"
-    - sh -c "[ -s result-debian8     ]"
+    - sh -c "[ -s result-debian9     ]"
     - sh -c "[ -s result-centos7     ]"
     - sh -c "[ -s result-alpine3     ]"
 
