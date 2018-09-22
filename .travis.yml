@@ -7,14 +7,14 @@ before_install:
     - docker version
 
 script:
-    - docker run -i -w /root -v $(pwd):/root williamyeh/ansible:ubuntu12.04-onbuild ansible-playbook-wrapper -c local tests/jmeter.yml   > result-ubuntu16.04
-    - docker run -i -w /root -v $(pwd):/root williamyeh/ansible:ubuntu14.04-onbuild ansible-playbook-wrapper -c local tests/jmeter.yml   > result-ubuntu14.04
-    - docker run -i -w /root -v $(pwd):/root williamyeh/ansible:ubuntu12.04-onbuild ansible-playbook-wrapper -c local tests/jmeter.yml   > result-ubuntu12.04
-    - docker run -i -w /root -v $(pwd):/root williamyeh/ansible:debian9-onbuild     ansible-playbook-wrapper -c local tests/jmeter.yml   > result-debian9
-    - docker run -i -w /root -v $(pwd):/root williamyeh/ansible:debian8-onbuild     ansible-playbook-wrapper -c local tests/jmeter.yml   > result-debian8
-    - docker run -i -w /root -v $(pwd):/root williamyeh/ansible:centos7-onbuild     ansible-playbook-wrapper -c local tests/jmeter.yml   > result-centos7
-    - docker run -i -w /root -v $(pwd):/root williamyeh/ansible:centos6-onbuild     ansible-playbook-wrapper -c local tests/jmeter.yml   > result-centos6
-    - docker run -i -w /root -v $(pwd):/root williamyeh/ansible:alpine3-onbuild     ansible-playbook-wrapper -c local tests/jmeter.yml   > result-alpine3
+    - docker run -i -w /root -v $(pwd):/root -e PLAYBOOK=tests/jmeter.yml williamyeh/ansible:ubuntu12.04-onbuild ansible-playbook-wrapper    > result-ubuntu16.04
+    - docker run -i -w /root -v $(pwd):/root -e PLAYBOOK=tests/jmeter.yml williamyeh/ansible:ubuntu14.04-onbuild ansible-playbook-wrapper    > result-ubuntu14.04
+    - docker run -i -w /root -v $(pwd):/root -e PLAYBOOK=tests/jmeter.yml williamyeh/ansible:ubuntu12.04-onbuild ansible-playbook-wrapper    > result-ubuntu12.04
+    - docker run -i -w /root -v $(pwd):/root -e PLAYBOOK=tests/jmeter.yml williamyeh/ansible:debian9-onbuild     ansible-playbook-wrapper    > result-debian9
+    - docker run -i -w /root -v $(pwd):/root -e PLAYBOOK=tests/jmeter.yml williamyeh/ansible:debian8-onbuild     ansible-playbook-wrapper    > result-debian8
+    - docker run -i -w /root -v $(pwd):/root -e PLAYBOOK=tests/jmeter.yml williamyeh/ansible:centos7-onbuild     ansible-playbook-wrapper    > result-centos7
+    - docker run -i -w /root -v $(pwd):/root -e PLAYBOOK=tests/jmeter.yml williamyeh/ansible:centos6-onbuild     ansible-playbook-wrapper    > result-centos6
+    - docker run -i -w /root -v $(pwd):/root -e PLAYBOOK=tests/jmeter.yml williamyeh/ansible:alpine3-onbuild     ansible-playbook-wrapper    > result-alpine3
 
     - echo "==> Validating the test results..."
     - sh -c "[ -s result-ubuntu16.04 ]"
