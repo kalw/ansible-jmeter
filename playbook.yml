@@ -1,1 +1,6 @@
-jmeter.yml
+---
+- hosts: all
+  sudo: true
+  roles:
+    - role: ./
+     

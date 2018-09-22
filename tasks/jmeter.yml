@@ -2,6 +2,16 @@
 # This playbook contains common plays that will be run on all nodes.
 
 - name: jmeter | Create temporary directory
+  include_role:
+    name: robertdebock.bootstrap
+
+- name: jmeter | Create temporary directory
+  include_role:
+    name: robertdebock.java
+  vars:
+    java_version: "{{java_version}}"
+
+- name: jmeter | Create temporary directory
   shell: mktemp -d
   register: tempdir
   sudo: true
@@ -12,7 +22,6 @@
     name: "{{ item }}"
     state: present
   with_items:
-    - "openjdk8-{{ openjdk8_version }}"
     - curl
     - util-linux
     - openssl

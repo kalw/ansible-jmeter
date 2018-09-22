@@ -1,5 +1,7 @@
+java_vendor: openjdk
+java_type: jdk
+java_version: 8
 jmeter_enabled: True                       # Enable module
-openjdk8_version: 8.171.11-r0
 user: "{{ lookup('env','USER') }}"
 jmeter_owner: "{{ user }}"
 jmeter_group: "{{ user}}"
