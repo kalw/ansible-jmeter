@@ -7,14 +7,14 @@ before_install:
     - docker version
 
 script:
-    - docker run -i williamyeh/ansible:master-ubuntu16.04-onbuild   > result-ubuntu16.04
-    - docker run -i williamyeh/ansible:master-ubuntu14.04-onbuild   > result-ubuntu14.04
-    - docker run -i williamyeh/ansible:master-ubuntu12.04-onbuild   > result-ubuntu12.04
-    - docker run -i williamyeh/ansible:master-debian9-onbuild       > result-debian9
-    - docker run -i williamyeh/ansible:master-debian8-onbuild       > result-debian8
-    - docker run -i williamyeh/ansible:master-centos7-onbuild       > result-centos7
-    #- docker run -i williamyeh/ansible:master-centos6-onbuild       > result-centos6
-    - docker run -i williamyeh/ansible:master-alpine3-onbuild       > result-alpine3
+    - docker run -i -w /tmp -v $(pwd):/tmp williamyeh/ansible:master-ubuntu12.04-onbuild ansible-playbook -c local jmeter.yml   > result-ubuntu16.04
+    - docker run -i -w /tmp -v $(pwd):/tmp williamyeh/ansible:master-ubuntu14.04-onbuild ansible-playbook -c local jmeter.yml   > result-ubuntu14.04
+    - docker run -i -w /tmp -v $(pwd):/tmp williamyeh/ansible:master-ubuntu12.04-onbuild ansible-playbook -c local jmeter.yml   > result-ubuntu12.04
+    - docker run -i -w /tmp -v $(pwd):/tmp williamyeh/ansible:master-debian9-onbuild     ansible-playbook -c local jmeter.yml   > result-debian9
+    - docker run -i -w /tmp -v $(pwd):/tmp williamyeh/ansible:master-debian8-onbuild     ansible-playbook -c local jmeter.yml   > result-debian8
+    - docker run -i -w /tmp -v $(pwd):/tmp williamyeh/ansible:master-centos7-onbuild     ansible-playbook -c local jmeter.yml   > result-centos7
+    - docker run -i -w /tmp -v $(pwd):/tmp williamyeh/ansible:master-centos6-onbuild     ansible-playbook -c local jmeter.yml   > result-centos6
+    - docker run -i -w /tmp -v $(pwd):/tmp williamyeh/ansible:master-alpine3-onbuild     ansible-playbook -c local jmeter.yml   > result-alpine3
 
     - echo "==> Validating the test results..."
     - sh -c "[ -s result-ubuntu16.04 ]"
@@ -23,10 +23,8 @@ script:
     - sh -c "[ -s result-debian8     ]"
     - sh -c "[ -s result-debian7     ]"
     - sh -c "[ -s result-centos7     ]"
-    #- sh -c "[ -s result-centos6     ]"
+    - sh -c "[ -s result-centos6     ]"
     - sh -c "[ -s result-alpine3     ]"
 
 notifications:
     webhooks: https://galaxy.ansible.com/api/v1/notifications/
-    
-
