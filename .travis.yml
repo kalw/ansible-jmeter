@@ -14,11 +14,8 @@ script:
 
     - echo "==> Validating the test results..."
     - sh -c "[ -s result-ubuntu16.04 ]"
-    - sh -c "[ -s result-ubuntu14.04 ]"
     - sh -c "[ -s result-debian8     ]"
-    - sh -c "[ -s result-debian7     ]"
     - sh -c "[ -s result-centos7     ]"
-    - sh -c "[ -s result-centos6     ]"
     - sh -c "[ -s result-alpine3     ]"
 
 notifications:
