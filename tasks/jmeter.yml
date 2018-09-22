@@ -9,8 +9,15 @@
   
 - name: jmeter | Install unzip
   package:
-    name=unzip
-    state="present"
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "openjdk8-{{ openjdk8_version }}"
+    - curl
+    - util-linux
+    - openssl
+    - glic
+    - unzip
   tags: jmeter_setup
   
 #jmeter standard
