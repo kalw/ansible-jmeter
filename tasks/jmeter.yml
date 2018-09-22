@@ -1,32 +1,22 @@
 ---
 # This playbook contains common plays that will be run on all nodes.
 
-- name: jmeter | Create temporary directory
+- name: jmeter | bootstrap java
   include_role:
     name: robertdebock.bootstrap
 
-- name: jmeter | Create temporary directory
+- name: jmeter | Install java
   include_role:
     name: robertdebock.java
   vars:
-    java_version: "{{java_version}}"
+    java_vendor: "{{ jmeter_java_vendor }}"
+    java_type: "{{ jmeter_java_type }}"
+    java_version: "{{ jmeter_java_version }}"
 
 - name: jmeter | Create temporary directory
   shell: mktemp -d
   register: tempdir
   sudo: true
-  tags: jmeter_setup
-  
-- name: jmeter | Install unzip
-  package:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - curl
-    - util-linux
-    - openssl
-    - glic
-    - unzip
   tags: jmeter_setup
   
 #jmeter standard
@@ -48,14 +38,6 @@
   command: chdir={{ jmeter_base_dir }} /usr/bin/unzip -o -q {{ jmeter_dir_tmp }}/{{ jmeter_archive }}
   tags: jmeter_setup
 
-#- name: jmeter | Create home directory
-#  file:
-#    dest="{{ jmeter_home_dir }}"
-#    state=directory
-#  sudo : yes
-#  tags: jmeter_setup
-
-#jmeter plugins standard
 - name: jmeter | Download jmeter plugins standard
   get_url:
     url="{{ jmeter_plugins_standard_url }}"
